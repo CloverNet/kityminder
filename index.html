@@ -9,25 +9,14 @@
     <title>百度脑图 - 便捷的思维编辑工具</title>
     
     <script src="import.js?pack=index"></script>
-
+    <script type="text/javascript" src="sso/sso-1.0.0.js"></script>
+    <script type="text/javascript" src="sso/ssoclient.js"></script>
+    <script src="
+    https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js
+    "></script> 
     <script>
 
         $(function() {
-
-            var pattern = /(?:shareId|share_id)=(\w+)([&#]|$)/;
-            var match = pattern.exec(window.location) || pattern.exec(document.referrer);
-
-            if (match) {
-                window.location.href = 'viewshare.html?shareId=' + match[1];
-                return;
-            }
-
-            /* 初始化网盘使用的 APP 身份 */
-            fio.user.init({
-                apiKey: 'wiE55BGOG8BkGnpPs6UNtPbb'
-            });
-
-            var $a = $('p.login a').hide();
 
             function loadingAnimate(on) {
                 if (on) {
@@ -43,24 +32,9 @@
 
             loadingAnimate(true);
 
-            fio.user.check().then(function(user) {
-                if (user) {
-                    window.location.href = 'edit.html';
-                }
-                else {
-                    $a.fadeIn(800);
-                    loadingAnimate(false);
-                }
-            });
-            
             $('p.login a').click(function() {
-                var urlparts = window.location.href.split('/');
-                urlparts.pop();
-                urlparts = urlparts.join('/');
-                fio.user.login({
-                    redirectUrl: urlparts + '/edit.html',
-                    remember: 7 * 24 * 60 * 60
-                });
+                debugger
+                SYNOSSO.login()
                 loadingAnimate(true);
             });
 
@@ -289,8 +263,7 @@
         舒适的体验 丰富的功能<br/>
     </p>
     <p class="login">
-        <a>马上开启</a>
-        <span>使用百度账号登录</span>
+        <a>登录</a>
     </p>
 </body>
 

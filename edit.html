@@ -12,7 +12,12 @@
     <script src="import.js?pack=edit" charset="utf-8"></script>
     <script src="kityminder.config.js" charset="utf-8"></script>
     <script src="lang/zh-cn/zh-cn.js" charset="utf-8"></script>
-    
+
+    <script type="text/javascript" src="sso/sso-1.0.0.js"></script>
+    <script type="text/javascript" src="sso/ssoclient.js"></script>
+    <script src="
+https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js
+"></script>
     <link href="ui/theme/default/css/default.all.css" type="text/css" rel="stylesheet" />
 
     <link href="favicon.ico" type="image/x-icon" rel="shortcut icon">
@@ -34,6 +39,11 @@
 
 /* global km:true, ZeroClipboard:true, zip:true */
 /* jshint browser:true */
+
+fio.user.login = Function.prototype;
+
+SVGElement.prototype.getTransformToElement = SVGElement.prototype.getTransformToElement || 
+    function(toElement) { return toElement.getScreenCTM().inverse().multiply(this.getScreenCTM()); };
 
 $(function() {
     /* 依赖库初始化 */
