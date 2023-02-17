@@ -18,7 +18,7 @@ class Ziper {
 
         $filename = dirname( $filepath ) . '/' . basename( $filepath ) . '.zip';
 
-        $state = $archive->open( $filename, ZipArchive::OVERWRITE );
+        $state = $archive->open( $filename,  ZIPARCHIVE::CREATE | ZIPARCHIVE::OVERWRITE );
 
         if ( $state !== true ) {
             return null;

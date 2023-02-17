@@ -165,7 +165,7 @@
         { path: 'ui/nav.js',                            pack: 'edit|share' },
 
         /* UI Top Bar */
-        { path: 'ui/topbar/moreservice.js',             pack: 'edit|share'},
+        // { path: 'ui/topbar/moreservice.js',             pack: 'edit|share'},
 
         /* UI 菜单 */
         { path: 'ui/menu/menu.js',                      pack: 'edit|share' },
